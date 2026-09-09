@@ -35,3 +35,36 @@ const menuToggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.nav-links');
 if (menuToggle && nav) menuToggle.addEventListener('click', () => { const open = menuToggle.getAttribute('aria-expanded') === 'true'; menuToggle.setAttribute('aria-expanded', String(!open)); nav.classList.toggle('open', !open); });
 document.querySelectorAll('.portrait-art').forEach((portrait) => { portrait.innerHTML = '<img src="founder-photo.png" alt="Malik Shahnawaz, founder of Digital Growth & Tech">'; });
+
+const serviceImages = {
+	'google-ads': ['1.png', 'Google Ads campaign dashboard'],
+	'meta-ads': ['3.png', 'Meta Ads creative campaign'],
+	'social-media': ['4.png', 'Social media growth planning'],
+	'social-management': ['5.png', 'Social media management workspace'],
+	'ai-ads': ['3.png', 'AI video advertising creative'],
+	'ai-explainer': ['screen.png', 'AI explainer video storyboard'],
+	'ai-product': ['4.png', 'AI product video concept'],
+	'ai-reels': ['5.png', 'AI short-form video content'],
+	'video-editing': ['screen.png', 'Video editing timeline'],
+	'web': ['screen.png', 'Web development interface'],
+	'shopify': ['4.png', 'Shopify ecommerce experience'],
+	'wordpress': ['1.png', 'CMS website development'],
+	'seo': ['3.png', 'SEO analytics and search growth'],
+	'content-creation': ['5.png', 'Content creation workspace'],
+	'email': ['3.png', 'Email marketing campaign'],
+	'branding': ['4.png', 'Brand and graphic design system'],
+	'automation': ['screen.png', 'Automation workflow system'],
+	'virtual-assistant': ['1.png', 'Virtual assistant operations'],
+	'consulting': ['founder-photo.png', 'Digital strategy consultation']
+};
+document.querySelectorAll('.service-detail[id]').forEach((service) => {
+	const image = serviceImages[service.id];
+	if (!image) return;
+	const visual = document.createElement('div');
+	visual.className = 'service-visual';
+	visual.innerHTML = `<img src="${image[0]}" alt="${image[1]}"><span>${String(service.id).replaceAll('-', ' ')}</span>`;
+	service.querySelector('.detail-number')?.after(visual);
+});
+const serviceStyle = document.createElement('style');
+serviceStyle.textContent = `.directory-heading{display:flex;justify-content:space-between;align-items:end;border-top:1px solid var(--line);padding:28px 0 8px;margin-top:30px}.directory-heading>p:last-child{max-width:310px;color:var(--muted);font-size:11px;margin:0}.service-detail{grid-template-columns:80px 190px 1fr;align-items:start;gap:25px;transition:transform .25s}.service-detail:hover{transform:translateX(6px)}.service-visual{height:150px;position:relative;overflow:hidden;border-radius:8px;background:var(--lav-2);box-shadow:0 10px 24px #1e2b6c12}.service-visual img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.82);transition:transform .45s,filter .45s}.service-detail:hover .service-visual img{transform:scale(1.08);filter:saturate(1.08)}.service-visual:after{content:'';position:absolute;inset:0;background:linear-gradient(145deg,#1859e833,transparent 60%);pointer-events:none}.service-visual span{position:absolute;left:9px;bottom:8px;color:#fff;font:600 9px var(--display);text-transform:uppercase;letter-spacing:.09em;text-shadow:0 1px 8px #0008;z-index:1}@media(max-width:800px){.directory-heading{display:block}.directory-heading>p:last-child{margin-top:8px}.service-detail{grid-template-columns:42px 1fr;gap:16px}.service-visual{grid-column:2;grid-row:1;height:130px}.service-detail>.service-visual~div:last-child{grid-column:2;grid-row:2}.service-detail:hover{transform:none}}`;
+document.head.appendChild(serviceStyle);
