@@ -23,3 +23,6 @@ document.querySelector('#save-settings').addEventListener('click', () => {
   updateWhatsAppLink();
 });
 updateWhatsAppLink();
+
+const adminServiceImages = { 'google-ads':'service-google-ads.jpeg','meta-ads':'service-meta-ads.jpeg','ai-ads':'service-ai-video-ads.jpeg','ai-explainer':'service-ai-explainer.jpeg','ai-product':'service-ai-product.jpeg','ai-reels':'ai-thumbnail-reel.jpeg','video-editing':'service-video-editing.jpeg','seo':'service-seo.jpeg','web':'service-web.jpeg','shopify':'service-shopify.jpeg','wordpress':'service-wordpress.jpeg','content-creation':'service-content.jpeg','social-media':'service-social-marketing.jpeg','social-management':'service-social-management.jpeg','email':'service-email.jpeg','branding':'service-branding.jpeg','automation':'service-automation.jpeg','virtual-assistant':'service-virtual-assistant.jpeg','consulting':'service-consulting.jpeg' };
+document.querySelectorAll('.admin-service-grid a').forEach((link) => { const key = link.getAttribute('href')?.split('#')[1]; const image = adminServiceImages[key]; const img = link.querySelector('img'); if (image && img) img.src = `assets/${image}`; });

@@ -65,3 +65,14 @@ if (homeMain && !document.querySelector('.home-showcase')) {
   comparison.innerHTML = `<div class="section-heading"><div><p class="eyebrow">The difference</p><h2>More than a supplier.<br><span>A sharper partner.</span></h2></div></div><div class="comparison-table"><div class="comparison-row comparison-head"><span></span><b>Typical freelancer</b><b>Malik Shahnawaz</b></div><div class="comparison-row"><span>Strategy before execution</span><i>—</i><strong>✓</strong></div><div class="comparison-row"><span>One accountable senior partner</span><i>—</i><strong>✓</strong></div><div class="comparison-row"><span>Creative tied to measurable goals</span><i>Sometimes</i><strong>Always</strong></div><div class="comparison-row"><span>WhatsApp-first communication</span><i>—</i><strong>✓</strong></div></div>`;
   homeMain.insertBefore(comparison, process || null);
 }
+
+const heroPanel = document.querySelector('.hero-panel');
+if (heroPanel && !heroPanel.querySelector('.hero-slideshow')) {
+  const slides = ['assets/hero-01.jpeg','assets/hero-02.jpeg','assets/hero-03.jpeg','assets/hero-04.jpeg','assets/hero-05.jpeg'];
+  const slideshow = document.createElement('div');
+  slideshow.className = 'hero-slideshow';
+  slideshow.innerHTML = slides.map((src, index) => `<img src="${src}" alt="Digital growth service visual ${index + 1}" class="${index === 0 ? 'active' : ''}">`).join('');
+  heroPanel.prepend(slideshow);
+  let current = 0;
+  setInterval(() => { const images = [...slideshow.querySelectorAll('img')]; images[current].classList.remove('active'); current = (current + 1) % images.length; images[current].classList.add('active'); }, 4500);
+}

@@ -1,6 +1,6 @@
 const WHATSAPP_NUMBER = '923042736561';
 const serviceCatalog = ['Google Ads','Meta Ads','AI Video Ads','AI Explainer Videos','AI Product Videos','AI Reels & Shorts','Video Editing','SEO Services','Web Development','Shopify Development','WordPress / CMS','Content Creation','Social Media Marketing','Social Media Management','Email Marketing','Branding & Graphic Design','Automation & AI','Virtual Assistance','Digital Strategy & Consulting'];
-const serviceImages = { 'google-ads':'1.png','meta-ads':'3.png','social-media':'4.png','social-management':'5.png','ai-ads':'3.png','ai-explainer':'1.png','ai-product':'4.png','ai-reels':'5.png','video-editing':'3.png','web':'1.png','shopify':'4.png','wordpress':'5.png','seo':'1.png','content-creation':'3.png','email':'4.png','branding':'5.png','automation':'1.png','virtual-assistant':'4.png','consulting':'3.png' };
+const serviceImages = { 'google-ads':'assets/service-google-ads.jpeg','meta-ads':'assets/service-meta-ads.jpeg','social-media':'assets/service-social-marketing.jpeg','social-management':'assets/service-social-management.jpeg','ai-ads':'assets/service-ai-video-ads.jpeg','ai-explainer':'assets/service-ai-explainer.jpeg','ai-product':'assets/service-ai-product.jpeg','ai-reels':'assets/ai-thumbnail-reel.jpeg','video-editing':'assets/service-video-editing.jpeg','web':'assets/service-web.jpeg','shopify':'assets/service-shopify.jpeg','wordpress':'assets/service-wordpress.jpeg','seo':'assets/service-seo.jpeg','content-creation':'assets/service-content.jpeg','email':'assets/service-email.jpeg','branding':'assets/service-branding.jpeg','automation':'assets/service-automation.jpeg','virtual-assistant':'assets/service-virtual-assistant.jpeg','consulting':'assets/service-consulting.jpeg' };
 const openWhatsApp = (message) => window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
 
 const serviceSelect = document.querySelector('#contact-form select[name="service"]');
@@ -69,3 +69,19 @@ function addInnerPageSections() {
 
 addServiceVisuals();
 addInnerPageSections();
+
+document.querySelectorAll('.case-art').forEach((art, index) => {
+	const image = `assets/portfolio-0${index + 1}.jpeg`;
+	art.style.backgroundImage = `linear-gradient(180deg, #10152d11, #10152d66), url("${image}")`;
+	art.style.backgroundSize = 'cover';
+	art.style.backgroundPosition = 'center';
+});
+
+const aboutHero = document.querySelector('.about-hero');
+if (aboutHero && !aboutHero.querySelector('.about-hero-image')) {
+	const image = document.createElement('img');
+	image.className = 'about-hero-image';
+	image.src = 'assets/about-workspace.jpeg';
+	image.alt = 'Malik Shahnawaz workspace';
+	aboutHero.appendChild(image);
+}
