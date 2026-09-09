@@ -1,0 +1,16 @@
+<header class="site-header">
+  <div class="announcement">{{ settings.announcement }}</div>
+  <div class="header-inner page-width">
+    <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">Menu</button>
+    <a class="wordmark" href="{{ routes.root_url }}">{{ settings.logo_text }}</a>
+    <nav class="desktop-nav" aria-label="Main navigation">
+      <a href="{{ routes.all_products_collection_url }}">Shop</a>
+      <a href="/pages/about">Our story</a>
+      <a href="/blogs/journal">Journal</a>
+    </nav>
+    <div class="header-actions">
+      <a href="{{ routes.search_url }}" aria-label="Search">Search</a>
+      <a href="{{ routes.cart_url }}" aria-label="Cart">Bag <span class="cart-count">({{ cart.item_count }})</span></a>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,5 @@
+<section class="hero page-width">
+  <div class="hero-copy"><p class="eyebrow">The Morrow edit / 01</p><h1>Objects with a point of view.</h1><p class="hero-intro">A considered collection for rooms, rituals and the everyday in between.</p><a class="button button-dark" href="{{ section.settings.button_link | default: routes.all_products_collection_url }}">{{ section.settings.button_label | default: 'Shop the collection' }} <span>↗</span></a></div>
+  <div class="hero-art">{% if section.settings.image %}{{ section.settings.image | image_url: width: 1400 | image_tag: loading: 'eager', alt: section.settings.image.alt | escape }}{% else %}{{ 'morrow-hero.png' | asset_url | image_tag: loading: 'eager', alt: 'Morrow collection' }}{% endif %}<span class="hero-note">New season / 2026</span></div>
+</section>
+{% schema %}{"name":"Hero","settings":[{"type":"image_picker","id":"image","label":"Hero image"},{"type":"text","id":"button_label","label":"Button label","default":"Shop the collection"},{"type":"url","id":"button_link","label":"Button link"}],"presets":[{"name":"Hero"}]}{% endschema %}

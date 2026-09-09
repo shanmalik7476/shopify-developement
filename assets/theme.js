@@ -1,0 +1,1 @@
+document.querySelectorAll('.menu-toggle').forEach(function (button) { button.addEventListener('click', function () { var nav = document.querySelector('.desktop-nav'); var open = button.getAttribute('aria-expanded') === 'true'; button.setAttribute('aria-expanded', String(!open)); nav.classList.toggle('is-open', !open); }); });

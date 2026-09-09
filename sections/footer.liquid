@@ -1,0 +1,8 @@
+<footer class="site-footer">
+  <div class="page-width footer-grid">
+    <div><p class="footer-kicker">MORROW / EVERYDAY OBJECTS</p><h2>Made for the next chapter.</h2></div>
+    <div><p class="label">Explore</p><a href="{{ routes.all_products_collection_url }}">Shop all</a><a href="/pages/about">About Morrow</a><a href="/pages/contact">Contact</a></div>
+    <div><p class="label">Stay in the loop</p><p>Notes on design, ritual and the things worth keeping.</p>{% form 'customer', class: 'newsletter' %}<input type="hidden" name="contact[tags]" value="newsletter"><input type="email" name="contact[email]" placeholder="Email address" aria-label="Email address" required><button type="submit">Join</button>{% endform %}</div>
+  </div>
+  <div class="page-width footer-bottom"><span>© {{ 'now' | date: '%Y' }} {{ shop.name }}</span><span>Designed with intention.</span></div>
+</footer>

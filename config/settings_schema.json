@@ -1,0 +1,17 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Morrow",
+    "theme_version": "1.0.0",
+    "theme_author": "Morrow Studio",
+    "theme_documentation_url": "https://shopify.dev/docs/storefronts/themes"
+  },
+  {
+    "name": "Brand",
+    "settings": [
+      { "type": "text", "id": "announcement", "label": "Announcement", "default": "Complimentary shipping on orders over $120" },
+      { "type": "text", "id": "logo_text", "label": "Logo text", "default": "MORROW" },
+      { "type": "color", "id": "accent", "label": "Accent color", "default": "#d66b4b" }
+    ]
+  }
+]
