@@ -85,3 +85,22 @@ if (aboutHero && !aboutHero.querySelector('.about-hero-image')) {
 	image.alt = 'Malik Shahnawaz workspace';
 	aboutHero.appendChild(image);
 }
+
+function addFinalChrome() {
+	const main = document.querySelector('main');
+	const footer = document.querySelector('.simple-footer');
+	if (!main || !footer || main.querySelector('.final-inquiry')) return;
+	const divider = document.createElement('div');
+	divider.className = 'section-divider';
+	const inquiry = document.createElement('section');
+	inquiry.className = 'final-inquiry section-shell';
+	inquiry.innerHTML = `<div><p class="eyebrow">One clear next step</p><h2>Have a brief?<br><span>Let's make it real.</span></h2><p>Tell me what you are building and I will reply directly on WhatsApp with the next useful step.</p></div><form id="final-contact-form" class="final-form"><div class="final-form-grid"><input name="name" required placeholder="Your name"><input name="phone" required placeholder="WhatsApp number"><input name="service" required placeholder="Service you need"><input name="budget" placeholder="Budget range"></div><textarea name="details" required rows="4" placeholder="What are you trying to achieve?"></textarea><button type="submit">Send brief on WhatsApp <span>↗</span></button><small>No data is stored on this website.</small></form>`;
+	main.appendChild(divider);
+	main.appendChild(inquiry);
+	footer.className = 'pro-footer';
+	footer.innerHTML = `<div class="section-shell pro-footer-grid"><div><a class="brand" href="index.html"><span class="brand-mark">M</span><span><strong>Malik Shahnawaz</strong><small>DIGITAL GROWTH &amp; TECH</small></span></a><p>Digital strategy, design, development and growth systems for ambitious businesses.</p><a href="https://wa.me/${WHATSAPP_NUMBER}" target="_blank" rel="noopener">Message on WhatsApp ↗</a></div><div><b>Navigate</b><a href="about.html">About</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="pricing.html">Pricing</a></div><div><b>Services</b><a href="services.html#google-ads">Google Ads</a><a href="services.html#shopify">Shopify Development</a><a href="services.html#ai-ads">AI Video</a><a href="services.html#seo">SEO &amp; Content</a></div><div><b>Direct line</b><strong class="footer-number">+92 304 2736561</strong><span>Pakistan / MENA / UK / EU / US</span><a href="contact.html">Start a project ↗</a></div></div><div class="section-shell pro-footer-bottom"><span>© 2026 Malik Shahnawaz Digital Growth &amp; Tech</span><span>WhatsApp-first support / built with intent</span></div>`;
+	const finalForm = inquiry.querySelector('#final-contact-form');
+	finalForm.addEventListener('submit', (event) => { event.preventDefault(); if (!finalForm.reportValidity()) return; const data = new FormData(finalForm); openWhatsApp(['New website inquiry - Malik Shahnawaz', '', `Name: ${data.get('name')}`, `WhatsApp: ${data.get('phone')}`, `Service: ${data.get('service')}`, `Budget: ${data.get('budget') || 'Not specified'}`, `Details: ${data.get('details')}`].join('\n')); });
+}
+
+addFinalChrome();
