@@ -76,3 +76,11 @@ if (heroPanel && !heroPanel.querySelector('.hero-slideshow')) {
   let current = 0;
   setInterval(() => { const images = [...slideshow.querySelectorAll('img')]; images[current].classList.remove('active'); current = (current + 1) % images.length; images[current].classList.add('active'); }, 4500);
 }
+
+if (homeMain && !homeMain.querySelector('.home-digital-divider')) {
+  const divider = document.createElement('div');
+  divider.className = 'home-digital-divider';
+  divider.innerHTML = '<span></span><span></span><span></span><b>MS / DIGITAL SYSTEMS</b>';
+  const processSection = homeMain.querySelector('#process');
+  if (processSection) homeMain.insertBefore(divider, processSection);
+}
