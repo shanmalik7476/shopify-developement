@@ -1,3 +1,7 @@
+const darkFinalStyles = document.createElement('link');
+darkFinalStyles.rel = 'stylesheet';
+darkFinalStyles.href = 'dark-final.css';
+document.head.appendChild(darkFinalStyles);
 const settingsKey = 'morrowWhatsAppSettings';
 const defaults = { number: '923042736561', greeting: 'Hello Malik Shahnawaz, I want to discuss a project.' };
 const settings = { ...defaults, ...JSON.parse(localStorage.getItem(settingsKey) || '{}') };

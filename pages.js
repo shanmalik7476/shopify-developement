@@ -1,3 +1,7 @@
+const darkFinalStyles = document.createElement('link');
+darkFinalStyles.rel = 'stylesheet';
+darkFinalStyles.href = 'dark-final.css';
+document.head.appendChild(darkFinalStyles);
 const WHATSAPP_NUMBER = '923042736561';
 const serviceCatalog = ['Google Ads','Meta Ads','AI Video Ads','AI Explainer Videos','AI Product Videos','AI Reels & Shorts','Video Editing','SEO Services','Web Development','Shopify Development','WordPress / CMS','Content Creation','Social Media Marketing','Social Media Management','Email Marketing','Branding & Graphic Design','Automation & AI','Virtual Assistance','Digital Strategy & Consulting'];
 const serviceImages = { 'google-ads':'assets/service-google-ads.jpeg','meta-ads':'assets/service-meta-ads.jpeg','social-media':'assets/service-social-marketing.jpeg','social-management':'assets/service-social-management.jpeg','ai-ads':'assets/service-ai-video-ads.jpeg','ai-explainer':'assets/service-ai-explainer.jpeg','ai-product':'assets/service-ai-product.jpeg','ai-reels':'assets/ai-thumbnail-reel.jpeg','video-editing':'assets/service-video-editing.jpeg','web':'assets/service-web.jpeg','shopify':'assets/service-shopify.jpeg','wordpress':'assets/service-wordpress.jpeg','seo':'assets/service-seo.jpeg','content-creation':'assets/service-content.jpeg','email':'assets/service-email.jpeg','branding':'assets/service-branding.jpeg','automation':'assets/service-automation.jpeg','virtual-assistant':'assets/service-virtual-assistant.jpeg','consulting':'assets/service-consulting.jpeg' };

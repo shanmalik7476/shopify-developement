@@ -1,3 +1,7 @@
+const darkFinalStyles = document.createElement('link');
+darkFinalStyles.rel = 'stylesheet';
+darkFinalStyles.href = 'dark-final.css';
+document.head.appendChild(darkFinalStyles);
 const DEFAULT_WHATSAPP_NUMBER = '923042736561';
 const savedSettings = JSON.parse(localStorage.getItem('morrowWhatsAppSettings') || '{}');
 const WHATSAPP_NUMBER = (savedSettings.number || DEFAULT_WHATSAPP_NUMBER).replace(/\D/g, '');
