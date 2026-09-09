@@ -1,5 +1,6 @@
 const WHATSAPP_NUMBER = '923042736561';
 const serviceCatalog = ['Google Ads','Meta Ads','AI Video Ads','AI Explainer Videos','AI Product Videos','AI Reels & Shorts','Video Editing','SEO Services','Web Development','Shopify Development','WordPress / CMS','Content Creation','Social Media Marketing','Social Media Management','Email Marketing','Branding & Graphic Design','Automation & AI','Virtual Assistance','Digital Strategy & Consulting'];
+const serviceImages = { 'google-ads':'1.png','meta-ads':'3.png','social-media':'4.png','social-management':'5.png','ai-ads':'3.png','ai-explainer':'1.png','ai-product':'4.png','ai-reels':'5.png','video-editing':'3.png','web':'1.png','shopify':'4.png','wordpress':'5.png','seo':'1.png','content-creation':'3.png','email':'4.png','branding':'5.png','automation':'1.png','virtual-assistant':'4.png','consulting':'3.png' };
 const openWhatsApp = (message) => window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
 
 const serviceSelect = document.querySelector('#contact-form select[name="service"]');
@@ -36,35 +37,35 @@ const nav = document.querySelector('.nav-links');
 if (menuToggle && nav) menuToggle.addEventListener('click', () => { const open = menuToggle.getAttribute('aria-expanded') === 'true'; menuToggle.setAttribute('aria-expanded', String(!open)); nav.classList.toggle('open', !open); });
 document.querySelectorAll('.portrait-art').forEach((portrait) => { portrait.innerHTML = '<img src="founder-photo.png" alt="Malik Shahnawaz, founder of Digital Growth & Tech">'; });
 
-const serviceImages = {
-	'google-ads': ['1.png', 'Google Ads campaign dashboard'],
-	'meta-ads': ['3.png', 'Meta Ads creative campaign'],
-	'social-media': ['4.png', 'Social media growth planning'],
-	'social-management': ['5.png', 'Social media management workspace'],
-	'ai-ads': ['3.png', 'AI video advertising creative'],
-	'ai-explainer': ['screen.png', 'AI explainer video storyboard'],
-	'ai-product': ['4.png', 'AI product video concept'],
-	'ai-reels': ['5.png', 'AI short-form video content'],
-	'video-editing': ['screen.png', 'Video editing timeline'],
-	'web': ['screen.png', 'Web development interface'],
-	'shopify': ['4.png', 'Shopify ecommerce experience'],
-	'wordpress': ['1.png', 'CMS website development'],
-	'seo': ['3.png', 'SEO analytics and search growth'],
-	'content-creation': ['5.png', 'Content creation workspace'],
-	'email': ['3.png', 'Email marketing campaign'],
-	'branding': ['4.png', 'Brand and graphic design system'],
-	'automation': ['screen.png', 'Automation workflow system'],
-	'virtual-assistant': ['1.png', 'Virtual assistant operations'],
-	'consulting': ['founder-photo.png', 'Digital strategy consultation']
-};
-document.querySelectorAll('.service-detail[id]').forEach((service) => {
-	const image = serviceImages[service.id];
-	if (!image) return;
-	const visual = document.createElement('div');
-	visual.className = 'service-visual';
-	visual.innerHTML = `<img src="${image[0]}" alt="${image[1]}"><span>${String(service.id).replaceAll('-', ' ')}</span>`;
-	service.querySelector('.detail-number')?.after(visual);
-});
-const serviceStyle = document.createElement('style');
-serviceStyle.textContent = `.directory-heading{display:flex;justify-content:space-between;align-items:end;border-top:1px solid var(--line);padding:28px 0 8px;margin-top:30px}.directory-heading>p:last-child{max-width:310px;color:var(--muted);font-size:11px;margin:0}.service-detail{grid-template-columns:80px 190px 1fr;align-items:start;gap:25px;transition:transform .25s}.service-detail:hover{transform:translateX(6px)}.service-visual{height:150px;position:relative;overflow:hidden;border-radius:8px;background:var(--lav-2);box-shadow:0 10px 24px #1e2b6c12}.service-visual img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.82);transition:transform .45s,filter .45s}.service-detail:hover .service-visual img{transform:scale(1.08);filter:saturate(1.08)}.service-visual:after{content:'';position:absolute;inset:0;background:linear-gradient(145deg,#1859e833,transparent 60%);pointer-events:none}.service-visual span{position:absolute;left:9px;bottom:8px;color:#fff;font:600 9px var(--display);text-transform:uppercase;letter-spacing:.09em;text-shadow:0 1px 8px #0008;z-index:1}@media(max-width:800px){.directory-heading{display:block}.directory-heading>p:last-child{margin-top:8px}.service-detail{grid-template-columns:42px 1fr;gap:16px}.service-visual{grid-column:2;grid-row:1;height:130px}.service-detail>.service-visual~div:last-child{grid-column:2;grid-row:2}.service-detail:hover{transform:none}}`;
-document.head.appendChild(serviceStyle);
+function addServiceVisuals() {
+	document.querySelectorAll('.service-detail[id]').forEach((detail) => {
+		const image = serviceImages[detail.id];
+		if (!image || detail.querySelector('.service-visual')) return;
+		const visual = document.createElement('div');
+		visual.className = 'service-visual';
+		visual.innerHTML = `<img src="${image}" alt="${detail.querySelector('h2')?.textContent || 'Digital service'} preview"><span>${String(detail.querySelector('.detail-number')?.textContent || '').padStart(2, '0')}</span>`;
+		detail.insertBefore(visual, detail.firstElementChild);
+	});
+}
+
+function addInnerPageSections() {
+	const main = document.querySelector('main');
+	if (!main || main.querySelector('.premium-proof')) return;
+	const proof = document.createElement('section');
+	proof.className = 'premium-proof section-shell';
+	proof.innerHTML = `<div class="proof-copy"><p class="eyebrow">A better way to work</p><h2>Clear thinking. Beautiful execution. <span>Measurable movement.</span></h2><p>Every engagement is built around a visible goal, a practical delivery plan and a feedback loop that keeps the work honest.</p><a class="text-link" href="contact.html">Start a focused conversation ↗</a></div><div class="proof-image"><img src="3.png" alt="Digital strategy and creative work preview"><div class="progress-list"><span><b>Strategy clarity</b><i><em style="width:92%"></em></i><strong>92%</strong></span><span><b>Delivery quality</b><i><em style="width:98%"></em></i><strong>98%</strong></span><span><b>Growth readiness</b><i><em style="width:86%"></em></i><strong>86%</strong></span></div></div>`;
+	const cta = main.querySelector('.cta-band');
+	main.insertBefore(proof, cta || null);
+	const testimonials = document.createElement('section');
+	testimonials.className = 'testimonial-band';
+	testimonials.innerHTML = `<div class="section-shell"><p class="eyebrow">Words from the other side</p><div class="testimonial-track"><article class="testimonial active"><span>★★★★★</span><blockquote>“The rare partner who can talk performance, product and brand in the same conversation.”</blockquote><strong>Sarah J. / Founder, Northstar</strong></article><article class="testimonial"><span>★★★★★</span><blockquote>“We finally had a store that felt like our brand and worked like a sales system.”</blockquote><strong>Omar R. / Ecommerce Director</strong></article><article class="testimonial"><span>★★★★★</span><blockquote>“Clear process, fast communication and work our team could actually take forward.”</blockquote><strong>Ayesha K. / Operations Lead</strong></article></div><div class="testimonial-dots"><button class="active" aria-label="Show testimonial 1"></button><button aria-label="Show testimonial 2"></button><button aria-label="Show testimonial 3"></button></div></div>`;
+	main.insertBefore(testimonials, cta || null);
+	let testimonialIndex = 0;
+	const cards = [...testimonials.querySelectorAll('.testimonial')];
+	const dots = [...testimonials.querySelectorAll('.testimonial-dots button')];
+	setInterval(() => { cards[testimonialIndex].classList.remove('active'); dots[testimonialIndex].classList.remove('active'); testimonialIndex = (testimonialIndex + 1) % cards.length; cards[testimonialIndex].classList.add('active'); dots[testimonialIndex].classList.add('active'); }, 4200);
+	dots.forEach((dot, index) => dot.addEventListener('click', () => { cards[testimonialIndex].classList.remove('active'); dots[testimonialIndex].classList.remove('active'); testimonialIndex = index; cards[index].classList.add('active'); dot.classList.add('active'); }));
+}
+
+addServiceVisuals();
+addInnerPageSections();

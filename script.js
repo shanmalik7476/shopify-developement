@@ -48,3 +48,20 @@ nav.querySelectorAll('a').forEach((link) => link.addEventListener('click', () =>
 document.querySelectorAll('.portrait-art').forEach((portrait) => {
   portrait.innerHTML = '<img src="founder-photo.png" alt="Malik Shahnawaz, founder of Digital Growth & Tech">';
 });
+
+const homeMain = document.querySelector('main');
+if (homeMain && !document.querySelector('.home-showcase')) {
+  const showcase = document.createElement('section');
+  showcase.className = 'home-showcase section-shell';
+  showcase.innerHTML = `<div class="showcase-copy"><p class="eyebrow">A studio built around outcomes</p><h2>Strategy that looks good <span>and works hard.</span></h2><p>From the first sketch to the final click, every detail has a job: build trust, remove friction and move the right people forward.</p><div class="showcase-points"><span>01 / Clear positioning</span><span>02 / High-converting experience</span><span>03 / Compounding growth</span></div><a class="text-link" href="services.html">Explore the full service system ↗</a></div><div class="showcase-image"><img src="1.png" alt="Digital campaign and strategy visual"><span class="image-caption">Selected direction / 01</span></div>`;
+  const process = homeMain.querySelector('#process');
+  homeMain.insertBefore(showcase, process || null);
+  const testimonial = document.createElement('section');
+  testimonial.className = 'testimonial-band home-testimonials';
+  testimonial.innerHTML = `<div class="section-shell"><div class="testimonial-heading"><p class="eyebrow">The signal from clients</p><h2>Good work leaves<br><span>a little momentum behind.</span></h2></div><div class="testimonial-quote"><span>★★★★★</span><blockquote>“Malik brought the rare combination of strategic calm and hands-on speed. We knew what mattered every week.”</blockquote><strong>— Founder, growth-stage ecommerce</strong></div></div>`;
+  homeMain.insertBefore(testimonial, process || null);
+  const comparison = document.createElement('section');
+  comparison.className = 'comparison-section section-shell';
+  comparison.innerHTML = `<div class="section-heading"><div><p class="eyebrow">The difference</p><h2>More than a supplier.<br><span>A sharper partner.</span></h2></div></div><div class="comparison-table"><div class="comparison-row comparison-head"><span></span><b>Typical freelancer</b><b>Malik Shahnawaz</b></div><div class="comparison-row"><span>Strategy before execution</span><i>—</i><strong>✓</strong></div><div class="comparison-row"><span>One accountable senior partner</span><i>—</i><strong>✓</strong></div><div class="comparison-row"><span>Creative tied to measurable goals</span><i>Sometimes</i><strong>Always</strong></div><div class="comparison-row"><span>WhatsApp-first communication</span><i>—</i><strong>✓</strong></div></div>`;
+  homeMain.insertBefore(comparison, process || null);
+}

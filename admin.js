@@ -23,14 +23,3 @@ document.querySelector('#save-settings').addEventListener('click', () => {
   updateWhatsAppLink();
 });
 updateWhatsAppLink();
-
-const catalogImages = ['1.png', '3.png', '4.png', '5.png', 'screen.png'];
-document.querySelectorAll('.admin-service-grid a').forEach((link, index) => {
-  const thumb = document.createElement('img');
-  thumb.src = catalogImages[index % catalogImages.length];
-  thumb.alt = '';
-  link.prepend(thumb);
-});
-const adminStyle = document.createElement('style');
-adminStyle.textContent = `.admin-service-grid a{align-items:center;gap:9px;overflow:hidden}.admin-service-grid a img{width:38px;height:38px;object-fit:cover;border-radius:4px;flex:none}.admin-service-grid a span{margin-left:auto}`;
-document.head.appendChild(adminStyle);
