@@ -44,3 +44,7 @@ nav.querySelectorAll('a').forEach((link) => link.addEventListener('click', () =>
   menuToggle.setAttribute('aria-expanded', 'false');
   nav.classList.remove('open');
 }));
+
+document.querySelectorAll('.portrait-art').forEach((portrait) => {
+  portrait.innerHTML = '<img src="founder-photo.png" alt="Malik Shahnawaz, founder of Digital Growth & Tech">';
+});
